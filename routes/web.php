@@ -27,5 +27,6 @@ require __DIR__ . '/auth.php';
 Route::group(['middleware' => 'auth'], function () {
     // Route::resource('products','\App\Http\Controllers\ProductController');
     Route::resource('todos','\App\Http\Controllers\TodoController');
-    Route::resource('users','\App\Http\Controllers\UserController');
+    Route::resource('users','\App\Http\Controllers\UserController')->middleware('user-access:admin');
 });
+
