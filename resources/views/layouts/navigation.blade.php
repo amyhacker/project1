@@ -15,9 +15,14 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @if(auth()->user()->type=="admin")
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users')">
+                        {{ __('User') }}
+                    </x-nav-link>
+                    @endif
 
-                    <x-nav-link :href="route('products.index')" :active="request()->routeIs('products')">
-                        {{ __('Products') }}
+                    <x-nav-link :href="route('todos.index')" :active="request()->routeIs('todos')">
+                        {{ __('Todo') }}
                     </x-nav-link>
 
                 </div>
